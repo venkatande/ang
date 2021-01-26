@@ -1,0 +1,53 @@
+<h1>Edit Student Page</h1>
+<button class="nav-item nav-link-edit" routerLink='/studentlist'>Student List</button >
+<br><br>
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+        <div class="form-group">
+          <div class="row">
+          <label class="col-sm-2 text-right" for="studentId">Student ID</label>
+          <input type="text" [(ngModel)]="student.studentId" 
+            class="col-sm-9 form-control" 
+            id="studentId" 
+            name="studentId" 
+            placeholder="Enter student id"
+            required #studentId="ngModel">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-2 text-right" for="firstName">First Name</label>
+     
+         
+          <input type="text" [(ngModel)]="student.firstName" 
+            class="col-sm-4 form-control" 
+            id="firstName" 
+            name="firstName" 
+            placeholder="Enter student first name"
+            required #firstName="ngModel">
+            <div class="col-sm-1"></div>
+            <div [hidden]="!firstName.pristine" class="col-sm-4 alert alert-danger">Student First Name is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+          <label class="col-sm-2 text-right" for="lastName">Student Last Name</label>
+          <input type="text" [(ngModel)]="student.lastName" 
+            class="col-sm-4 form-control" 
+            id="lastName" 
+            name="lastName" 
+            placeholder="Enter Student Last Name"
+            required #lastName="ngModel">
+            <div class="col-sm-1"></div>
+            <div [hidden]="!lastName.pristine" class="col-sm-4 alert alert-danger">Student Last Name is required</div>
+        </div>
+        </div>
+        
+        <button type="submit" [disabled]="!studentForm.form.valid" 
+          class="btn btn-info">Submit</button>
+   
+      </form>
+    </div>
+  </div>
